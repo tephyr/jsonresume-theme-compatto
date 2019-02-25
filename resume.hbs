@@ -2,28 +2,32 @@
 <html>
 	<head>
 	
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, user-scalable=no, minimal-ui">
-	
-	<title>{{#resume.basics}}{{name}}{{/resume.basics}}</title>
+    	<meta charset="utf-8">
+    	<meta name="viewport" content="width=device-width, user-scalable=no, minimal-ui">
+    	
+    	<title>{{#resume.basics}}{{name}}{{/resume.basics}}</title>
 
-	<style>
-	{{{css}}}
-	</style>
+    	<style>
+    	{{{css}}}
+    	</style>
 	
 	</head>
+
 	<body>
 	
-	<div id="resume">
-		{{> basics }}
-		{{> work }}
-		{{> volunteer }}
-		{{> education }}
-		{{> awards }}
-		{{> publications }}
-		{{> skills }}
-		{{> languages }}
-		{{> interests }}
-		{{> references }}
+    	<main id="resume">
+            <header>
+                {{> basics }}
+            </header>
+            {{> work }}
+            {{> volunteer }}
+            {{> education }}
+            {{> awards }}
+            {{> publications }}
+            {{> skills }}
+            {{> languages }}
+            {{> interests }}
+            {{> references }}
+        </main>
 	</body>
 </html>
