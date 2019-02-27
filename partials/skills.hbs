@@ -2,25 +2,19 @@
 <section id="skills">
 	<h2>Skills</h2>
 	{{#each resume.skills}}
-	<div class="item">
-		{{#if name}}
-		<div class="name">
-			{{name}}
-		</div>
-		{{/if}}
-		{{#if level}}
-		<div class="level">
-			<em>{{level}}</em>
-		</div>
-		{{/if}}
-		{{#if keywords.length}}
-		<ul class="keywords">
-			{{#each keywords}}
-			<li>{{.}}</li>
-			{{/each}}
-		</ul>
-		{{/if}}
-	</div>
+    <div class="grid-x grid-margin-x">
+        {{#if name}}
+            <div class="name cell small-4 large-2">{{name}}</div>
+        {{/if}}
+
+        {{#if keywords.length}}
+            <div class="keywords cell auto">
+                {{#each keywords}}
+                <span class="keyword">{{.}}</span>&nbsp;
+                {{/each}}
+            </div>
+        {{/if}}
+    </div>
 	{{/each}}
 </section>
 {{/if}}

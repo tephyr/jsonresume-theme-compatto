@@ -1,12 +1,16 @@
 {{#resume.basics}}
-    <h1>{{{ name }}}</h1>
-    <div id="contact">
-      {{#if email}}<div class="email"><a href="mailto:{{{ email }}}">{{ email }}</a></div>{{/if}}
-      {{#if phone}}<div class="phone">{{ phone }}</div>{{/if}}
-      {{#if website}}<div class="website"><a href="{{{ website }}}">{{ website }}</a></div>{{/if}}
+    <div class="grid-x">
+        <div class="cell auto">
+            <h1 class="resume-name">{{{ name }}}</h1>
+        </div>
+
+        <div id="contact" class="cell shrink">
+            {{#if email}}<span class="email cell shrink"><a href="mailto:{{{ email }}}">{{ email }}</a></span>&nbsp;{{/if}}
+            {{#if phone}}<span class="phone cell shrink">{{ phone }}</span>&nbsp;{{/if}}
+            {{#if website}}<span class="website cell shrink"><a href="{{{ website }}}">{{ website }}</a></span>{{/if}}
+        </div>
     </div>
-	<h1>{{name}}</h1>
-	<h2>{{label}}</h2>
+    <hr>
 	<section id="basics">
 		{{#if summary}}
 		<div class="summary">

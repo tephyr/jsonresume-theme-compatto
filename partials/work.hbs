@@ -1,14 +1,23 @@
 {{#if resume.work.length}}
 <section id="work">
-	<h2>Work</h2>
+	<h2>Employment</h2>
+    <hr>
 	{{#each resume.work}}
-	<div class="item">
+	<div class="grid-x grid-margin-x">
+
+        {{#if position}}
+            <div class="cell small-6 large-4"><span class="position-title">{{position}}</span></div>
+        {{/if}}
+
 		{{#if company}}
-		<h3 class="name">
-			{{company}}
-		</h3>
-		{{/if}}
-		<div class="date">
+            <div class="cell shrink">
+                {{#if website}}<a href="{{website}}">{{/if}}
+                <span class="company-name">{{company}}</span>
+                {{#if website}}</a>{{/if}}
+            </div>
+        {{/if}}
+
+		<div class="cell auto text-right date">
 			{{#if startDate}}
 			<span class="startDate">
 				{{startDate}}
@@ -23,30 +32,28 @@
 				- Present
 			</span>
 			{{/if}}
-		</div>
-		{{#if position}}
-		<div class="position">
-			{{position}}
-		</div>
-		{{/if}}
-		{{#if website}}
-		<div class="website">
-			<a href="{{website}}">{{website}}</a>
-		</div>
-		{{/if}}
-		{{#if summary}}
-		<div class="summary">
-			<p>{{summary}}</p>
-		</div>
-		{{/if}}
-		{{#if highlights.length}}
-		<ul class="highlights">
-			{{#each highlights}}
-			<li>{{.}}</li>
-			{{/each}}
-		</ul>
-		{{/if}}
-	</div>
+        </div>
+    </div>
+    
+    {{#if summary}}
+    <div class="grid-x grid-margin-x">
+        <div class="cell auto summary">
+            <p>{{summary}}</p>
+        </div>
+    </div>
+    {{/if}}
+
+	{{#if highlights.length}}
+    <div class="grid-x grid-margin-x">
+        <div class="cell">
+        <ul class="highlights">
+            {{#each highlights}}
+            <li>{{.}}</li>
+            {{/each}}
+        </ul>
+        </div>
+    </div>
+	{{/if}}
 	{{/each}}
 </section>
 {{/if}}

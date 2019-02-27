@@ -1,0 +1,52 @@
+@import '_settings';
+@import 'foundation';
+
+// Global styles
+@include foundation-global-styles;
+@include foundation-typography;
+
+@include foundation-xy-grid-classes;
+// Helpers
+@include foundation-float-classes;
+@include foundation-flex-classes;
+@include foundation-visibility-classes;
+@include foundation-prototype-classes;
+
+body {
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+header {
+    .resume-name {
+        font-weight: bold;
+    }
+
+    #contact {
+        .email, .website {
+            text-decoration: none;
+        }
+    }
+}
+
+
+#work {
+    .position-title {
+        font-weight: bold;
+        font-style: italic;
+    }
+
+    .company-name, .date {
+        font-weight: bold;
+    }
+}
+
+section {
+    margin-bottom: 5px;
+
+    & > h2 {
+        font-weight: bold;
+        text-transform: uppercase;
+        margin-bottom: 3px;
+    }
+}
