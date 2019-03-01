@@ -49,6 +49,10 @@ section {
 }
 
 @media print {
+    body {
+        margin: 25px 45px;
+    }
+
     a {
         text-decoration: none;
     }
