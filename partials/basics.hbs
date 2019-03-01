@@ -1,5 +1,6 @@
 {{#resume.basics}}
-    <div class="grid-x">
+<header>
+    <section class="grid-x">
         <div class="cell auto">
             <h1 class="resume-name">{{{ name }}}</h1>
         </div>
@@ -9,8 +10,7 @@
             {{#if phone}}<span class="phone cell shrink">{{ phone }}</span>&nbsp;{{/if}}
             {{#if website}}<span class="website cell shrink"><a href="{{{ website }}}">{{ website }}</a></span>{{/if}}
         </div>
-    </div>
-    <hr>
+    </section>
 	<section id="basics">
 		{{#if summary}}
 		<div class="summary">
@@ -18,4 +18,5 @@
 		</div>
 		{{/if}}
 	</section>
+</header>
 {{/resume.basics}}

@@ -25,6 +25,14 @@ header {
     }
 }
 
+p {
+    margin-bottom: 0;
+}
+
+ul {
+    margin-bottom: 0;
+}
+
 #work {
     .position-title {
         font-weight: bold;
@@ -37,11 +45,16 @@ header {
 
     .work-entry {
         break-inside: avoid-page;
+        margin-top: 5px;
+    }
+
+    .work-entry:first-of-type {
+        margin-top: 0;
     }
 }
 
 section {
-    margin-bottom: 5px;
+    margin-bottom: 2px;
 
     & > h2 {
         font-weight: bold;

@@ -1,7 +1,7 @@
 {{#if resume.work.length}}
+<hr>
 <section id="work">
 	<h2>Employment</h2>
-    <hr>
 	{{#each resume.work}}
     <div class="work-entry">
         <div class="grid-x grid-margin-x">
@@ -21,12 +21,12 @@
             <div class="cell auto text-right date">
                 {{#if startDate}}
                 <span class="startDate">
-                    {{startDate}}
+                    {{#standardizeDate}}{{startDate}}{{/standardizeDate}}
                 </span>
                 {{/if}}
                 {{#if endDate}}
                 <span class="endDate">
-                    - {{endDate}}
+                    - {{#standardizeDate}}{{endDate}}{{/standardizeDate}}
                 </span>
                 {{else}}
                 <span class="endDate">
