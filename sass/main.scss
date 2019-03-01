@@ -39,6 +39,10 @@ header {
     .company-name, .date {
         font-weight: bold;
     }
+
+    .work-entry {
+        break-inside: avoid-page;
+    }
 }
 
 section {

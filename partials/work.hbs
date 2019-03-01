@@ -3,57 +3,59 @@
 	<h2>Employment</h2>
     <hr>
 	{{#each resume.work}}
-	<div class="grid-x grid-margin-x">
+    <div class="work-entry">
+        <div class="grid-x grid-margin-x">
 
-        {{#if position}}
-            <div class="cell small-6 large-4"><span class="position-title">{{position}}</span></div>
-        {{/if}}
+            {{#if position}}
+                <div class="cell small-6 large-4"><span class="position-title">{{position}}</span></div>
+            {{/if}}
 
-		{{#if company}}
-            <div class="cell shrink">
-                {{#if website}}<a href="{{website}}">{{/if}}
-                <span class="company-name">{{company}}</span>
-                {{#if website}}</a>{{/if}}
+            {{#if company}}
+                <div class="cell shrink">
+                    {{#if website}}<a href="{{website}}">{{/if}}
+                    <span class="company-name">{{company}}</span>
+                    {{#if website}}</a>{{/if}}
+                </div>
+            {{/if}}
+
+            <div class="cell auto text-right date">
+                {{#if startDate}}
+                <span class="startDate">
+                    {{startDate}}
+                </span>
+                {{/if}}
+                {{#if endDate}}
+                <span class="endDate">
+                    - {{endDate}}
+                </span>
+                {{else}}
+                <span class="endDate">
+                    - Present
+                </span>
+                {{/if}}
+            </div>
+        </div>
+        
+        {{#if summary}}
+            <div class="grid-x grid-margin-x">
+                <div class="cell auto summary">
+                    <p>{{summary}}</p>
+                </div>
             </div>
         {{/if}}
 
-		<div class="cell auto text-right date">
-			{{#if startDate}}
-			<span class="startDate">
-				{{startDate}}
-			</span>
-			{{/if}}
-			{{#if endDate}}
-			<span class="endDate">
-				- {{endDate}}
-			</span>
-			{{else}}
-			<span class="endDate">
-				- Present
-			</span>
-			{{/if}}
-        </div>
+        {{#if highlights.length}}
+            <div class="grid-x grid-margin-x ok-break-after">
+                <div class="cell">
+                <ul class="highlights">
+                    {{#each highlights}}
+                    <li>{{.}}</li>
+                    {{/each}}
+                </ul>
+                </div>
+            </div>
+        {{/if}}
     </div>
-    
-    {{#if summary}}
-    <div class="grid-x grid-margin-x">
-        <div class="cell auto summary">
-            <p>{{summary}}</p>
-        </div>
-    </div>
-    {{/if}}
-
-	{{#if highlights.length}}
-    <div class="grid-x grid-margin-x">
-        <div class="cell">
-        <ul class="highlights">
-            {{#each highlights}}
-            <li>{{.}}</li>
-            {{/each}}
-        </ul>
-        </div>
-    </div>
-	{{/if}}
 	{{/each}}
 </section>
 {{/if}}
