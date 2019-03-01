@@ -21,14 +21,7 @@ header {
     .resume-name {
         font-weight: bold;
     }
-
-    #contact {
-        .email, .website {
-            text-decoration: none;
-        }
-    }
 }
-
 
 #work {
     .position-title {
@@ -52,5 +45,11 @@ section {
         font-weight: bold;
         text-transform: uppercase;
         margin-bottom: 3px;
+    }
+}
+
+@media print {
+    a {
+        text-decoration: none;
     }
 }
