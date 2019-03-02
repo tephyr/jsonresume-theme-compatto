@@ -1,29 +1,33 @@
 {{#if resume.education.length}}
+<hr>
 <section id="education">
 	<h2>Education</h2>
 	{{#each resume.education}}
-	<div class="item">
-		<div class="date">
-			{{#if startDate}}
-			<span class="startDate">
-				{{startDate}}
-			</span>
-			{{/if}}
-			{{#if endDate}}
-			<span class="endDate">
-				- {{endDate}}
-			</span>
-			{{else}}
-			<span class="endDate">
-				- Present
-			</span>
-			{{/if}}
-		</div>
-		{{#if institution}}
-		<div class="institution">
-			{{institution}}
-		</div>
-		{{/if}}
+    <div class="grid-x grid-margin-x item">
+        {{#if institution}}
+        <div class="cell small-8 institution">
+            {{institution}}
+        </div>
+        {{/if}}
+        <div class="cell auto text-right date">
+            {{#if startDate}}
+            <span class="startDate">
+                {{#standardizeDate}}{{startDate}}{{/standardizeDate}} -
+            </span>
+            {{/if}}
+            {{#if endDate}}
+            <span class="endDate">
+                {{#standardizeDate}}{{endDate}}{{/standardizeDate}}
+            </span>
+            {{else}}
+            <span class="endDate">
+                Present
+            </span>
+            {{/if}}
+        </div>
+    </div>
+
+	<div class="grid-x grid-margin-x">
 		{{#if area}}
 		<div class="area">
 			{{area}}
