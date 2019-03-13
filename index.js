@@ -65,6 +65,10 @@ Handlebars.registerHelper("standardizeDate", function(options) {
     return newDate;
 });
 
+Handlebars.registerHelper('toLowerCase', function(str) {
+  return str.toLowerCase();
+});
+
 module.exports = {
 	render: render
 };

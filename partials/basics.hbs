@@ -11,6 +11,17 @@
             {{#if website}}<span class="website cell shrink"><a href="{{{ website }}}">{{ website }}</a></span>{{/if}}
         </div>
     </section>
+
+    {{#if profiles}}
+    <section class="grid-x grid-margin-x align-right">
+        {{#each profiles}}
+        <div class="cell shrink">
+            <span class="fab fa-{{toLowerCase network}}"></span>&nbsp;<a href="{{url}}">{{username}}</a>
+        </div>
+        {{/each}}
+    </section>
+    {{/if}}
+
 	<section id="basics">
 		{{#if summary}}
 		<div class="summary">
