@@ -1,8 +1,8 @@
 {{#if resume.education.length}}
 <hr>
 <section id="education">
-	<h2><span class="fas fa-graduation-cap"></span>&nbsp;Education</h2>
-	{{#each resume.education}}
+    <h2><span class="fas fa-graduation-cap"></span>&nbsp;Education</h2>
+    {{#each resume.education}}
     <div class="grid-x grid-margin-x item">
         {{#if institution}}
         <div class="cell small-8 institution">
@@ -27,30 +27,37 @@
         </div>
     </div>
 
-	<div class="grid-x grid-margin-x">
-		{{#if area}}
-		<div class="area">
-			{{area}}
-		</div>
-		{{/if}}
-		{{#if studyType}}
-		<div class="studyType">
-			{{studyType}}
-		</div>
-		{{/if}}
-		{{#if gpa}}
-		<div class="gpa">
-			GPA: {{gpa}}
-		</div>
-		{{/if}}
-		{{#if courses.length}}
-		<ul class="courses">
-			{{#each courses}}
-			<li>{{.}}</li>
-			{{/each}}
-		</ul>
-		{{/if}}
-	</div>
-	{{/each}}
+    <div class="grid-x grid-margin-x item">
+        {{#if studyType}}
+        <div class="cell shrink studyType">
+            {{studyType}}{{#if area}}, {{area}}{{/if}}
+        </div>
+        {{/if}}
+        {{#unless studyType}}
+            {{#if area}}
+            <div class="cell shrink area">
+                {{area}}
+            </div>
+            {{/if}}
+        {{/unless}}
+
+        {{#if gpa}}
+        <div class="cell gpa">
+            GPA: {{gpa}}
+        </div>
+        {{/if}}
+    </div>
+
+    {{#if courses.length}}
+    <div class="grid-x grid-margin-x item">
+        <ul class="cell courses">
+            {{#each courses}}
+            <li>{{.}}</li>
+            {{/each}}
+        </ul>
+    </div>
+    {{/if}}
+
+    {{/each}}
 </section>
 {{/if}}
