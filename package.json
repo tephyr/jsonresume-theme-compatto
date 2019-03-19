@@ -13,5 +13,12 @@
     "foundation-sites": "^6.5.3",
     "handlebars": "^4.1.0",
     "node-sass": "^4.11.0"
-  }
+  },
+  "keywords": [
+    "json", "jsonresume", "theme"
+  ],
+  "bugs": {
+    "url": "https://github.com/tephyr/jsonresume-theme-compatto/issues"
+  },
+  "homepage": "https://github.com/tephyr/jsonresume-theme-compatto"
 }
