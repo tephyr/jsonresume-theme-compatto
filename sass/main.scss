@@ -38,6 +38,14 @@ ul {
     margin-bottom: 0;
 }
 
+#skills {
+    .keywords {
+        .keyword:not(:last-of-type)::after {
+            content: ", ";
+        }
+    }
+}
+
 #work {
     .position-title {
         font-weight: bold;
