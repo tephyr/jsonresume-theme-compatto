@@ -38,6 +38,11 @@ ul {
     margin-bottom: 0;
 }
 
+.break-page {
+    // Add "breakPage": true to elements to force a page break *before*.
+    break-before: page;
+}
+
 #skills {
     .keywords {
         .keyword:not(:last-of-type)::after {
@@ -67,6 +72,7 @@ ul {
 }
 
 #education {
+    break-inside: avoid-page;
     .item {
         margin-top: 5px;
     }

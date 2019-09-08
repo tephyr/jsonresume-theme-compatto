@@ -3,7 +3,7 @@
 <section id="work">
 	<h2><span class="fas fa-building"></span>&nbsp;Employment</h2>
 	{{#each resume.work}}
-    <div class="work-entry">
+    <div class="work-entry {{#if breakPage}}break-page{{/if}}">
         <div class="grid-x grid-margin-x">
 
             {{#if position}}
