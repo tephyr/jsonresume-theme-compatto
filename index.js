@@ -37,11 +37,23 @@ function render(resume) {
 }
 
 function buildStyles() {
+    const _fnName = '[buildStyles]';
+    console.info(_fnName, 'starting');
+
     const sass = require("sass");
     const sassSrcPath = path.join(__dirname, 'sass', 'main.scss');
     const foundationSCSSPath = path.join(__dirname, 'node_modules', 'foundation-sites', 'scss');
-    const resultRender = sass.renderSync({file: sassSrcPath, includePaths: [foundationSCSSPath]});
-    return resultRender.css.toString();
+
+    console.info(_fnName, 'sassSrcPath', sassSrcPath);
+    console.info(_fnName, 'foundationSCSSPath', foundationSCSSPath);
+
+    try {
+        const resultRender = sass.renderSync({file: sassSrcPath, includePaths: [foundationSCSSPath]});
+        return resultRender.css.toString();
+    } catch(exc) {
+        console.error(exc);
+        console.info(exc.formatted);
+    }
 }
 
 Handlebars.registerHelper("standardizeDate", function(options) {
