@@ -37,7 +37,7 @@ function render(resume) {
 }
 
 function buildStyles() {
-    const sass = require("node-sass");
+    const sass = require("sass");
     const sassSrcPath = path.join(__dirname, 'sass', 'main.scss');
     const foundationSCSSPath = path.join(__dirname, 'node_modules', 'foundation-sites', 'scss');
     const resultRender = sass.renderSync({file: sassSrcPath, includePaths: [foundationSCSSPath]});
