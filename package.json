@@ -10,7 +10,7 @@
   "license": "MIT",
   "dependencies": {
     "date-fns": "^2.25.0",
-    "foundation-sites": "^6.6.0",
+    "foundation-sites": "^6.7.4",
     "handlebars": "^4.7.7",
     "sass": "^1.43.4"
   },
