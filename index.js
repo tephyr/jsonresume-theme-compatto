@@ -5,19 +5,25 @@ const dateFnParse = require('date-fns/parse');
 const dateFnFormat = require('date-fns/format');
 
 function render(resume) {
-    console.info("[render]", "starting", arguments.length);
+    const _fnName = '[render]';
+    console.info(_fnName, "starting", arguments.length);
     // const css = fs.readFileSync(__dirname + "/style.css", "utf-8");
-    // console.info("[render]", "css", css);
+    // console.info(_fnName, "css", css);
     let cssCompiled;
     try {
         cssCompiled = buildStyles();
     } catch(exc) {
         console.err(exc);
     }
-    // console.info("[render]", "cssCompiled", cssCompiled);
-	const tpl = fs.readFileSync(__dirname + "/resume.hbs", "utf-8");
+
+    console.info(_fnName, "cssCompiled length", cssCompiled.length);
+
+	const tpl = fs.readFileSync(path.join(__dirname, "resume.hbs"), "utf-8");
 	const partialsDir = path.join(__dirname, 'partials');
 	const filenames = fs.readdirSync(partialsDir);
+
+    console.info(_fnName, 'resume.hbs size', tpl.length);
+    console.info(_fnName, '# of template files', filenames.length);
 
 	filenames.forEach(function (filename) {
 	  const matches = /^([^.]+).hbs$/.exec(filename);
@@ -30,10 +36,20 @@ function render(resume) {
 
 	  Handlebars.registerPartial(name, template);
 	});
-	return Handlebars.compile(tpl)({
-		css: cssCompiled,
-		resume: resume
-	});
+
+    let location = 0;
+
+    try {
+        const template = Handlebars.compile(tpl);
+        location++;
+    	return template({
+    		css: cssCompiled,
+    		resume: resume
+    	});
+    } catch(exc) {
+        console.error(exc);
+        console.info(_fnName, `ERROR: compiling/using template (location: ${location})`, exc.formatted);
+    }
 }
 
 function buildStyles() {
@@ -44,8 +60,8 @@ function buildStyles() {
     const sassSrcPath = path.join(__dirname, 'sass', 'main.scss');
     const foundationSCSSPath = path.join(__dirname, 'node_modules', 'foundation-sites', 'scss');
 
-    console.info(_fnName, 'sassSrcPath', sassSrcPath);
-    console.info(_fnName, 'foundationSCSSPath', foundationSCSSPath);
+    // console.info(_fnName, 'sassSrcPath', sassSrcPath);
+    // console.info(_fnName, 'foundationSCSSPath', foundationSCSSPath);
 
     try {
         const resultRender = sass.renderSync({file: sassSrcPath, includePaths: [foundationSCSSPath]});
@@ -68,7 +84,8 @@ Handlebars.registerHelper("standardizeDate", function(options) {
         // assume year
         newDate = resumeDate;
     } else if (regexYearMonth.test(resumeDate)) {
-        newDate = dateFnFormat(dateFnParse(`${resumeDate}-01`), 'MMM YYYY');
+        const parsedDate = dateFnParse(`${resumeDate}-01`, 'yyyy-MM-dd', new Date());
+        newDate = dateFnFormat(parsedDate, 'MMM yyyy');
     } else {
         console.info('[standardizeDate]', 'fell through', resumeDate);
     }
